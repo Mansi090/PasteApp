@@ -1,42 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
-// import { fetchPastes } from '../redux/pasteSlice';
-import toast from 'react-hot-toast';
-import { ClipLoader } from 'react-spinners';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams, NavLink } from "react-router-dom";
+import toast from "react-hot-toast";
+import { ClipLoader } from "react-spinners";
+import { fetchPastes } from "../redux/pasteSlice";
 
 const ViewPaste = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
-  const allPastes = useSelector((state) => state.paste.pastes);
-  const [isLoading, setIsLoading] = useState(true);
+  const allPastesFromState = useSelector((state) => state.paste.pastes);
   const [paste, setPaste] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const loadPaste = async () => {
+    const loadPaste = () => {
       setIsLoading(true);
-      try {
-        if (allPastes.length === 0) {
-          await dispatch(fetchPastes()).unwrap();
-        }
-        const updatedPastes = [...allPastes, ...(await dispatch(fetchPastes()).unwrap())];
-        const foundPaste = updatedPastes.find(p => p._id === id);
-        setPaste(foundPaste);
-      } catch (error) {
-        toast.error('Failed to load paste');
-      } finally {
-        setIsLoading(false);
+      // Use pastes from Redux state if available; otherwise, fetch from localStorage
+      let pastes = allPastesFromState;
+      if (!pastes || pastes.length === 0) {
+        pastes = fetchPastes();
       }
+      const foundPaste = pastes.find((p) => p._id === id);
+      if (!foundPaste) {
+        toast.error("Paste not found");
+      }
+      setPaste(foundPaste);
+      setIsLoading(false);
     };
 
     loadPaste();
-  }, [dispatch, id]);
+  }, [id, allPastesFromState]);
 
   const handleCopy = () => {
     if (paste) {
-      navigator.clipboard.writeText(paste.content)
-        .then(() => toast.success('Copied to clipboard!'))
-        .catch(() => toast.error('Failed to copy'));
+      navigator.clipboard
+        .writeText(paste.content)
+        .then(() => toast.success("Copied to clipboard!"))
+        .catch(() => toast.error("Failed to copy"));
     }
   };
 
@@ -74,8 +73,8 @@ const ViewPaste = () => {
         <div className="bg-white rounded-xl shadow-lg p-8">
           <div className="flex justify-between items-start mb-8">
             <div>
-              <h1 className="text-3xl font-bold text-gray-800">{paste.title}</h1>
-              <p className="text-gray-500 text-sm mt-2">
+              <h1 className="text-3xl font-bold text-black">{paste.title}</h1>
+              <p className="text-black text-sm mt-2">
                 Created at: {new Date(paste.createdAt).toLocaleString()}
               </p>
             </div>
@@ -88,9 +87,10 @@ const ViewPaste = () => {
             </button>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 font-mono whitespace-pre-wrap">
-            {paste.content}
-          </div>
+          <div className="bg-gray-50 text-gray-800 rounded-lg p-6 font-mono whitespace-pre-wrap">
+  {paste.content}
+</div>
+
 
           <div className="mt-8">
             <NavLink
