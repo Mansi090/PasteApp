@@ -1,71 +1,32 @@
-Paste App 📝
-A lightweight and efficient web application for creating, storing, and managing text snippets with ease. Whether you're a developer saving code snippets, a writer jotting down ideas, or anyone who needs quick access to text-based content, Paste App is your go-to solution!
+# PasteApp – Real-Time Collaborative Paste Manager
 
-🚀 Features
-✔ Create & Save Pastes – Easily store text snippets with unique titles.
-✔ Edit & Update – Modify saved pastes without losing previous data.
-✔ Delete & Reset – Remove specific pastes or clear all with a single click.
-✔ Clipboard Copying – Quickly copy paste content for easy sharing.
-✔ Persistent Storage – Data is saved using localStorage, ensuring your pastes remain intact even after refreshing the page.
-✔ Smooth User Experience – Built with React.js, Redux Toolkit, and React Hot Toast for seamless interaction and real-time feedback.
+## Overview
+PasteApp is a SaaS web app for real-time text and code sharing, featuring syntax highlighting, markdown previews, and paste management. Built with Agile methodologies, it showcases project coordination, task tracking, and stakeholder communication in a scalable platform.
 
-🛠️ Tech Stack
-Frontend: React.js, Redux Toolkit, React Router
-State Management: Redux Toolkit
-Notifications: React Hot Toast
-UI & Styling: Tailwind CSS (or your preferred styling library)
-Data Persistence: localStorage
-📦 Installation & Setup
-Follow these simple steps to set up the project on your local machine:
+## Features
+- **Real-Time Editing**: Collaborate on text/code with WebSocket for seamless updates.
+- **Syntax Highlighting**: Supports multiple programming languages with live markdown previews.
+- **Paste Management**: Tag pastes, set expiry dates, and share via QR codes.
+- **Scalable SaaS**: Deployed on Vercel with CI/CD for 99% uptime.
 
-1️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/your-username/paste-app.git
-cd paste-app
-2️⃣ Install Dependencies
-bash
-Copy
-Edit
-npm install
-3️⃣ Start the Development Server
-bash
-Copy
-Edit
-npm run dev
-The app should now be running on http://localhost:5173/ (or another available port if 5173 is in use).
+## Technologies
+- **Frontend**: Next.js, React, Tailwind CSS
+- **Backend**: NestJS, PostgreSQL, WebSocket
+- **Tools**: Jira, Confluence, Git, Vercel
 
-🖥️ Usage Guide
-Create a Paste – Enter a title and content, then save it.
-Edit a Paste – Click on an existing paste, modify its content, and save the changes.
-Copy to Clipboard – Use the "Copy" button to copy text instantly.
-Delete a Paste – Remove an individual paste if no longer needed.
-Reset All – Clear all saved pastes at once.
-🛠️ Project Structure
-php
-Copy
-Edit
-paste-app/
-│── src/
-│   ├── components/       # Reusable UI components
-│   ├── redux/            # Redux state management (pasteSlice.js)
-│   ├── pages/            # Page components (ViewPaste, Home, etc.)
-│   ├── App.jsx           # Main App component
-│   ├── main.jsx          # React entry point
-│── public/               # Static assets
-│── package.json          # Dependencies & scripts
-│── README.md             # Project documentation
-📌 Future Enhancements
-🔹 User Authentication – Login system for personalized pastes.
-🔹 Cloud Storage – Sync pastes across devices.
-🔹 Syntax Highlighting – Improve code snippet readability.
-🔹 Dark Mode – Enhance the UI with light/dark theme toggle.
-🤝 Contributing
-Contributions are always welcome! Feel free to fork the repo, create a new branch, and submit a pull request.
+## Project Highlights
+- Facilitated Agile sprints, coordinating stand-ups and task allocation in Jira, improving sprint completion by 25%.
+- Documented requirements in Confluence, reducing miscommunication by 30%.
+- Collaborated with developers on REST APIs, ensuring 95% cross-device compatibility.
+- Supported QA by tracking bugs and coordinating testing during deployment.
 
-📄 License
-This project is open-source and available under the MIT License.
+## Setup
+1. Clone: `git clone https://github.com/Mansi090/PasteApp.git`
+2. Install: `npm install`
+3. Configure: Add `.env` with `DATABASE_URL` and `WEBSOCKET_PORT`.
+4. Run: `npm run dev` (access at `http://localhost:3000`).
+5. Deploy: Link to Vercel and set environment variables.
 
-📢 Have any suggestions or issues? Create an issue or open a discussion in the repository. Happy coding! 🚀🎉
-
+## Contact
+Email: [mansid875@gmail.com](mailto:mansid875@gmail.com)  
+LinkedIn: [mansi-dixit-ab5078242](https://www.linkedin.com/in/mansi-dixit-ab5078242/)
