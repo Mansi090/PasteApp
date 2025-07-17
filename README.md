@@ -12,7 +12,7 @@ PasteApp is a SaaS web app for real-time text and code sharing, featuring syntax
 ## Technologies
 - **Frontend**: Next.js, React, Tailwind CSS
 - **Backend**: NestJS, PostgreSQL, WebSocket
-- **Tools**: Jira, Confluence, Git, Vercel
+- **Tools**: Jira, Git, Vercel
 
 ## Project Highlights
 - Facilitated Agile sprints, coordinating stand-ups and task allocation in Jira, improving sprint completion by 25%.
